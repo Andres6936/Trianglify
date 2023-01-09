@@ -110,9 +110,11 @@
     </defs>
     <path fill="url(#a)" d="M0 0h500v500H0z"></path>
   </svg>
-  <script src="../dist/trianglify.bundle.debug.js"></script>
-  <script>
+  <script type="module" src="../src/trianglify.js"></script>
+  <script type="module">
   // set up the base pattern
+  import trianglify from '../src/trianglify.js'
+
   const pattern = trianglify({
     height: window.innerHeight,
     width: window.innerWidth,
