@@ -1,5 +1,5 @@
 /**
- * @jest-environment jsdom
+ * @vitest-environment jsdom
  */
 /* eslint-env jest */
 // Because Trianglify is authored using ES modules syntax (which Rollup likes)

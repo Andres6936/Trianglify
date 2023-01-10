@@ -1,5 +1,5 @@
 /**
- * @jest-environment node
+ * @vitest-environment node
  */
 /* eslint-env jest */
 // Here, we test the node-specific functionality of Trianglify.
