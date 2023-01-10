@@ -10,10 +10,12 @@
  * less than those with 128-bit states, but it's still quite large, at
  * around 4 billion.
  *
- * @example
- * const randFn = mulberry32('string seed')
- * const randomNumber = randFn() // [0, 1] random float
+ * The original implementation in C of algorithm is:
+ * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
  *
+ * @example
+ *  const randFn = mulberry32('string seed')
+ *  const randomNumber = randFn() // [0, 1] random float
  *
  * @param {string|undefined} seed The seed to use, this param is optional,
  * if the seed not is provider a random seed is used.
