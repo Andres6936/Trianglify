@@ -3,8 +3,11 @@
  */
 /* eslint-env jest */
 // Here, we test the node-specific functionality of Trianglify.
-const trianglify = require('../dist/trianglify.js')
-const { Canvas } = require('canvas')
+
+import { describe, expect, test } from 'vitest'
+import trianglify from '../src/trianglify.js'
+import { Canvas } from 'canvas'
+
 const Pattern = trianglify.Pattern
 
 describe('Pattern generation', () => {

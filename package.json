@@ -5,14 +5,15 @@
   "main": "dist/trianglify.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "vitest",
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
+    "canvas": "^2.11.0",
     "chroma-js": "^2.4.2",
     "delaunator": "^5.0.0",
-    "canvas": "^2.11.0"
+    "vitest": "^0.27.0"
   },
   "directories": {
     "example": "examples"

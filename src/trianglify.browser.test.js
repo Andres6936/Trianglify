@@ -16,7 +16,10 @@
 // pull in the transpiled, browser-bundle version of trianglify.
 // this is needed so that we get the browser-targeted Canvas shim, and
 // NOT the node library
-const trianglify = require('../dist/trianglify.bundle.debug.js')
+
+import { describe, expect, test } from 'vitest'
+import trianglify from '../src/trianglify'
+
 const Pattern = trianglify.Pattern
 
 describe('Public API', () => {
