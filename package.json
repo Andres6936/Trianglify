@@ -17,7 +17,7 @@
     "vitest": "^0.27.0"
   },
   "directories": {
-    "example": "examples"
+    "example": "demo"
   },
   "repository": {
     "type": "git",
