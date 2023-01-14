@@ -15,9 +15,9 @@
     "chroma-js": "^2.4.2",
     "delaunator": "^5.0.0"
   },
-  "directories": {
-    "example": "demo"
-  },
+  "workspaces": [
+    "showcase"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/qrohlf/trianglify.git"

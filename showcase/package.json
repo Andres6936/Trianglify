@@ -1,0 +1,27 @@
+{
+  "name": "showcase",
+  "version": "1.0.0",
+  "description": "The demo for Trianglify",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qrohlf/trianglify.git"
+  },
+  "keywords": [
+    "showcase",
+    "trianglify"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qrohlf/trianglify/issues"
+  },
+  "homepage": "https://github.com/qrohlf/trianglify#readme",
+  "dependencies": {
+    "vite": "^4.0.4"
+  }
+}

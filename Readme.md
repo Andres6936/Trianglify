@@ -57,7 +57,7 @@ const file = fs.createWriteStream('trianglify.png')
 canvas.createPNGStream().pipe(file)
 ```
 
-You can see the [`examples/`](./demo) folder for more usage examples.
+You can see the [`examples/`](./showcase) folder for more usage examples.
 
 The https://trianglify.io/ GUI is a good place to play around with the various configuration parameters and see their
 effect on the generated output, live.
@@ -248,7 +248,7 @@ Specify a custom function for coloring triangles, defaults to `null`. Accepts a 
 gradient coloring, which is passed a variety of data about the pattern and each polygon and must return a Chroma.js
 color object.
 
-See [`examples/color-function-example.html`](demo/color-function-example.html)
+See [`examples/color-function-example.html`](showcase/color-function-example.html)
 and [`utils/colorFunctions.js`](./utils/colorFunctions.js) for more information about the built-in color functions, and
 how to write custom color functions.
 
@@ -264,5 +264,6 @@ Number, defaults to 0. Specify the width of the strokes used to outline the poly
 
 Array of points ([x, y]) to triangulate, defaults to null. When not specified an array randomised points is generated
 filling the space. Points must be within the coordinate space defined by `width` and `height`.
-See [`examples/custom-points-example.html`](demo/custom-points-example.html) for a demonstration of how this option can
+See [`examples/custom-points-example.html`](showcase/custom-points-example.html) for a demonstration of how this option
+can
 be used to generate circular trianglify patterns.
