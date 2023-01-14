@@ -1,18 +1,18 @@
-# Trianglify ![Build Status](https://github.com/qrohlf/trianglify/workflows/build/badge.svg)
-
+# Trianglify
 
 Trianglify is a library that I wrote to generate nice SVG background images like this one:
 
 ![](https://cloud.githubusercontent.com/assets/347189/6771063/f8b0af46-d090-11e4-8d4c-6c7ef5bd9d37.png)
 
 # Contents
-[📦 Getting Trianglify](#-getting-trianglify)  
-[🏎 Quickstart](#-quickstart)  
-[⚖️ Licensing](#%EF%B8%8F-licensing)  
-[📖 API](#-api)  
-[🎨 Configuration](#-configuration)
 
-# 📦 Getting Trianglify
+[Getting Trianglify](#-getting-trianglify)  
+[Quickstart](#-quickstart)  
+[Licensing](#-licensing)  
+[API](#-api)  
+[Configuration](#-configuration)
+
+# Getting Trianglify
 
 You can grab Trianglify with npm/yarn (recommended):
 
@@ -28,8 +28,7 @@ Include it in your application via the unpkg CDN:
 
 Or download a .zip from the [**releases page**](https://github.com/qrohlf/trianglify/releases).
 
-
-# 🏎 Quickstart
+# Quickstart
 
 **Browsers**
 ```html
@@ -62,14 +61,13 @@ You can see the [`examples/`](./showcase) folder for more usage examples.
 The https://trianglify.io/ GUI is a good place to play around with the various configuration parameters and see their
 effect on the generated output, live.
 
-# ⚖️ Licensing
+# Licensing
 
 The source code of Trianglify is licensed under version 3 of the GNU General Public License ([GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)). This means that any websites, apps, or other projects that include the Trianglify javascript library need to be released under a compatible open-source license. If you are interested in using Trianglify in a closed-source project, please email qr@qrohlf.com to purchase a commercial license.
 
 **However**, it's worth noting that you own the copyright to the output image files which you create using Trianglify, just like you own the copyright to an image created using something like [GIMP](https://www.gimp.org/). If you just want to use an image file that was generated using Trianglify in your project, and do not plan to distribute the Trianglify source code or compiled versions of it, you do not need to worry about the license restrictions described above.
 
-
-# 📖 API
+# API
 
 Trianglify is primarily used by calling the `trianglify` function, which returns a `trianglify.Pattern` object.
 
@@ -180,7 +178,7 @@ const canvasOpts = {
 }
 ```
 
-# 🎨 Configuration
+# Configuration
 
 Trianglify is configured by an options object passed in as the only argument. The following option keys are supported, see below for a complete description of what each option does.
 
