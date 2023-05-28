@@ -5,9 +5,8 @@
   "main": "src/trianglify.js",
   "type": "module",
   "scripts": {
-    "test": "vitest",
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "tsc --watch",
+    "build": "tsc --build"
   },
   "dependencies": {
     "canvas": "^2.11.0",
@@ -32,8 +31,11 @@
   },
   "homepage": "https://github.com/qrohlf/trianglify",
   "devDependencies": {
+    "@types/chroma-js": "^2.4.0",
+    "@types/delaunator": "^5.0.0",
+    "jsdom": "^21.0.0",
+    "typescript": "^5.0.4",
     "vite": "^4.0.4",
-    "vitest": "^0.27.0",
-    "jsdom": "^21.0.0"
+    "vitest": "^0.27.0"
   }
 }
