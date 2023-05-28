@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/qrohlf/trianglify#readme",
   "dependencies": {
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "adan-trianglify": "4.1.1"
   }
 }

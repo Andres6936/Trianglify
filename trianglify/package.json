@@ -1,0 +1,39 @@
+{
+  "name": "adan-trianglify",
+  "version": "4.1.1",
+  "description": "Trianglify is a javascript library for generating colorful triangle meshes that can be used as SVG images and CSS backgrounds.",
+  "main": "src/trianglify.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "canvas": "^2.11.0",
+    "chroma-js": "^2.4.2",
+    "delaunator": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qrohlf/trianglify.git"
+  },
+  "keywords": [
+    "svg",
+    "canvas",
+    "visualization",
+    "pattern",
+    "lowpoly"
+  ],
+  "author": "Quinn Rohlf <qr@qrohlf.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/qrohlf/trianglify/issues"
+  },
+  "homepage": "https://github.com/qrohlf/trianglify",
+  "devDependencies": {
+    "vite": "^4.0.4",
+    "vitest": "^0.27.0",
+    "jsdom": "^21.0.0"
+  }
+}
