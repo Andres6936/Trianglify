@@ -1,10 +1,14 @@
 import { createCanvas } from 'canvas' // this is a simple shim in browsers
 import getScalingRatio from './utils/getScalingRatio'
-const isBrowser = (typeof window !== 'undefined' && typeof document !== 'undefined')
-const doc = isBrowser && document
+const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !== 'undefined')
+const doc: Document | false = isBrowser && document
 
 // utility for building up SVG node trees with the DOM API
 const sDOM = (tagName, attrs = {}, children, existingRoot) => {
+  if (!doc) {
+    throw new Error("Error: Not browser support")
+  }
+  
   const elem = existingRoot || doc.createElementNS('http://www.w3.org/2000/svg', tagName)
   Object.keys(attrs).forEach(
     k => attrs[k] !== undefined && elem.setAttribute(k, attrs[k])

@@ -8,15 +8,16 @@
 import Delaunator from 'delaunator'
 // TODO - evaluate smaller alternatives
 // (chroma bloats bundle by 40k, minified)
-import chroma from 'chroma-js'
+import chroma, {Color, Scale} from 'chroma-js'
 
 import colorbrewer from './utils/colorbrewer'
 import Pattern from './pattern'
 import mulberry32 from './utils/mulberry32'
 import * as geom from './utils/geom'
 import * as colorFunctions from './utils/colorFunctions'
+import type {Options} from "./types/Options";
 
-const defaultOptions = {
+const defaultOptions: Options = {
   width: 600,
   height: 400,
   cellSize: 75,
@@ -39,13 +40,13 @@ const defaultOptions = {
 // 3. Generate random points within cell geometry
 // 4. Use the Delaunator library to run the triangulation
 // 5. Do color interpolation to establish the fundamental coloring of the shapes
-export default function trianglify (_opts = {}) {
+export default function trianglify (_opts: Partial<Options> = {}) {
   Object.keys(_opts).forEach(k => {
-    if (defaultOptions[k] === undefined) {
+    if (defaultOptions[k as keyof Options] === undefined) {
       throw TypeError(`Unrecognized option: ${k}`)
     }
   })
-  const opts = { ...defaultOptions, ..._opts }
+  const opts: Options = { ...defaultOptions, ..._opts }
 
   if (!(opts.height > 0)) {
     throw TypeError(`invalid height: ${opts.height}`)
@@ -86,8 +87,8 @@ export default function trianglify (_opts = {}) {
     ? xColors
     : processColorOpts(opts.yColors)
 
-  const xScale = chroma.scale(xColors).mode(opts.colorSpace)
-  const yScale = chroma.scale(yColors).mode(opts.colorSpace)
+  const xScale: Scale = chroma.scale(xColors).mode(opts.colorSpace)
+  const yScale: Scale = chroma.scale(yColors).mode(opts.colorSpace)
 
   // Our next step is to generate a pseudo-random grid of {x, y} points,
   // (or to simply utilize the points that were passed to us)
@@ -115,7 +116,7 @@ export default function trianglify (_opts = {}) {
     const vertices = vertexIndices.map(i => points[i])
 
     const { width, height } = opts
-    const norm = num => Math.max(0, Math.min(1, num))
+    const norm = (num: number) => Math.max(0, Math.min(1, num))
     const centroid = geom.getCentroid(vertices)
     const xPercent = norm(centroid.x / width)
     const yPercent = norm(centroid.y / height)
@@ -143,7 +144,7 @@ export default function trianglify (_opts = {}) {
   return new Pattern(points, polys, opts)
 }
 
-const getPoints = (opts, random) => {
+const getPoints = (opts: Options, random: () => number) => {
   const { width, height, cellSize, variance } = opts
 
   // pad by 2 cells outside the visible area on each side to ensure we fully

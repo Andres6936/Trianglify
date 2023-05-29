@@ -17,12 +17,12 @@
  *  const randFn = mulberry32('string seed')
  *  const randomNumber = randFn() // [0, 1] random float
  *
- * @param {string|undefined} seed The seed to use, this param is optional,
+ * @param {string|null} seed The seed to use, this param is optional,
  * if the seed not is provider a random seed is used.
  *
- * @return {function(): *} The generator random function.
+ * @return {function(): number} The generator random function.
  */
-export default function mulberry32 (seed) {
+export default function mulberry32 (seed: string | null): () => number {
   if (!seed) { seed = Math.random().toString(36) } // support no-seed usage
   var a = xmur3(seed)()
   return function () {
@@ -77,7 +77,7 @@ export default function mulberry32 (seed) {
  * subsequent call to the return function of xmur3 produces a new "random"
  * 32-bit hash value to be used as a seed in a PRNG.
  */
-function xmur3 (str) {
+function xmur3 (str: string): () => number {
   for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++) {
     h = Math.imul(h ^ str.charCodeAt(i), 3432918353)
     h = h << 13 | h >>> 19
