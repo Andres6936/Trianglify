@@ -1,5 +1,6 @@
 import type {BrewerPalettes} from "./BrewerPalettes";
-import type {InterpolationMode} from "chroma-js";
+import type {Color, InterpolationMode} from "chroma-js";
+import type {Param} from "./Param";
 
 export type Options = {
     width: number,
@@ -11,6 +12,7 @@ export type Options = {
     yColors: string,
     palette: BrewerPalettes,
     colorSpace: InterpolationMode,
+    colorFunction: (param: Param) => Color
     fill: boolean,
     strokeWidth: number,
 }

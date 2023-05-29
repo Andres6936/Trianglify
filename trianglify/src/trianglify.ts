@@ -16,6 +16,7 @@ import mulberry32 from './utils/mulberry32'
 import * as geom from './utils/geom'
 import * as colorFunctions from './utils/colorFunctions'
 import type {Options} from "./types/Options";
+import {BrewerPalettes} from "./types/BrewerPalettes";
 
 const defaultOptions: Options = {
   width: 600,
@@ -56,25 +57,25 @@ export default function trianglify (_opts: Partial<Options> = {}) {
   }
 
   // standard randomizer, used for point gen and layout
-  const rand = mulberry32(opts.seed)
+  const rand: ()  => number = mulberry32(opts.seed)
 
-  const randomFromPalette = () => {
+  const randomFromPalette = (): string[] => {
     if (opts.palette instanceof Array) {
       return opts.palette[Math.floor(rand() * opts.palette.length)]
     }
     const keys = Object.keys(opts.palette)
-    return opts.palette[keys[Math.floor(rand() * keys.length)]]
+    return opts.palette[(keys[Math.floor(rand() * keys.length)] as keyof BrewerPalettes)]
   }
 
   // The first step here is to set up our color scales for the X and Y axis.
   // First, munge the shortcut options like 'random' or 'match' into real color
   // arrays. Then, set up a Chroma scale in the appropriate color space.
-  const processColorOpts = (colorOpt) => {
+  const processColorOpts = (colorOpt: string | string[]) : string[] => {
     switch (true) {
       case Array.isArray(colorOpt):
-        return colorOpt
-      case !!opts.palette[colorOpt]:
-        return opts.palette[colorOpt]
+        return colorOpt as string[]
+      case !!opts.palette[colorOpt as keyof BrewerPalettes]:
+        return opts.palette[colorOpt as keyof BrewerPalettes]
       case colorOpt === 'random':
         return randomFromPalette()
       default:
