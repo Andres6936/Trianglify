@@ -4,7 +4,7 @@ const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !==
 const doc: Document | false = isBrowser && document
 
 // utility for building up SVG node trees with the DOM API
-const sDOM = (tagName: string, attrs = {}, children, existingRoot: Element) => {
+const sDOM = (tagName: string, attrs: Record<string, string> = {}, children: any, existingRoot: Element) => {
   if (!doc) {
     throw new Error("Error: Not browser support")
   }
@@ -19,7 +19,7 @@ const sDOM = (tagName: string, attrs = {}, children, existingRoot: Element) => {
 
 // serialize attrs object to XML attributes. Assumes everything is already
 // escaped (safe input).
-const serializeAttrs = attrs => (
+const serializeAttrs = (attrs: Record<string, string>) => (
   Object.entries(attrs)
     .filter(([_, v]) => v !== undefined)
     .map(([k, v]) => `${k}='${v}'`)
@@ -27,7 +27,7 @@ const serializeAttrs = attrs => (
 )
 
 // minimal XML-tree builder for use in Node
-const sNode = (tagName, attrs = {}, children) => ({
+const sNode = (tagName: string, attrs: Record<string, string> = {}, children: any) => ({
   tagName,
   attrs,
   children,

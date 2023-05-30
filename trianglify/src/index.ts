@@ -17,6 +17,7 @@ import * as geom from './utils/geom'
 import * as colorFunctions from './utils/colorFunctions'
 import type {Options} from "./types/Options";
 import type {BrewerPalettes} from "./types/BrewerPalettes";
+import type {Point} from "./types/Point";
 
 const defaultOptions: Options = {
   width: 600,
@@ -93,7 +94,7 @@ export default function trianglify (_opts: Partial<Options> = {}) {
 
   // Our next step is to generate a pseudo-random grid of {x, y} points,
   // (or to simply utilize the points that were passed to us)
-  const points = opts.points || getPoints(opts, rand)
+  const points: Point[] = opts.points || getPoints(opts, rand)
 
   // Once we have the points array, run the triangulation
   var geomIndices: Uint32Array = Delaunator.from(points).triangles
@@ -114,7 +115,7 @@ export default function trianglify (_opts: Partial<Options> = {}) {
     ]
 
     // grab a copy of the actual vertices to use for calculations
-    const vertices = vertexIndices.map(i => points[i])
+    const vertices: Point[] = vertexIndices.map(i => points[i])
 
     const { width, height } = opts
     const norm = (num: number) => Math.max(0, Math.min(1, num))
@@ -145,7 +146,7 @@ export default function trianglify (_opts: Partial<Options> = {}) {
   return new Pattern(points, polys, opts)
 }
 
-const getPoints = (opts: Options, random: () => number) => {
+const getPoints = (opts: Options, random: () => number): Point[] => {
   const { width, height, cellSize, variance } = opts
 
   // pad by 2 cells outside the visible area on each side to ensure we fully
@@ -166,7 +167,7 @@ const getPoints = (opts: Options, random: () => number) => {
 
   const halfCell = cellSize / 2
 
-  const points = Array(pointCount).fill(null).map((_, i) => {
+  const points: Point[] = Array(pointCount).fill(null).map((_, i) => {
     const col = i % colCount
     const row = Math.floor(i / colCount)
 
