@@ -9,7 +9,7 @@ export type Options = {
     cellSize: number,
     variance: number,
     seed: string | null,
-    xColors: string,
+    xColors: string | string[],
     yColors: string,
     palette: BrewerPalettes,
     colorSpace: InterpolationMode,
