@@ -11,7 +11,7 @@ import Delaunator from 'delaunator'
 import chroma, {Scale} from 'chroma-js'
 
 import colorbrewer from './utils/colorbrewer'
-import Pattern from './pattern'
+import Pattern from './utils/pattern'
 import mulberry32 from './utils/mulberry32'
 import * as geom from './utils/geom'
 import * as colorFunctions from './utils/colorFunctions'
