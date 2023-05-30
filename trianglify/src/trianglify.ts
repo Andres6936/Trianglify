@@ -96,7 +96,7 @@ export default function trianglify (_opts: Partial<Options> = {}) {
   const points = opts.points || getPoints(opts, rand)
 
   // Once we have the points array, run the triangulation
-  var geomIndices = Delaunator.from(points).triangles
+  var geomIndices: Uint32Array = Delaunator.from(points).triangles
   // ...and then generate geometry and color data:
 
   // use a different (salted) randomizer for the color function so that

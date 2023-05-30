@@ -1,6 +1,7 @@
 import type {Options} from "../types/Options";
+import type {Point} from "../types/Point";
 
-export const debugRender = (opts: Options, points) => {
+export const debugRender = (opts: Options, points: Point[]) => {
   const doc = window.document
   const svg = window.document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   svg.setAttribute('width', (opts.width + 400).toString())
@@ -8,8 +9,8 @@ export const debugRender = (opts: Options, points) => {
 
   points.forEach(p => {
     const circle = doc.createElementNS('http://www.w3.org/2000/svg', 'circle')
-    circle.setAttribute('cx', p[0])
-    circle.setAttribute('cy', p[1])
+    circle.setAttribute('cx', p[0].toString())
+    circle.setAttribute('cy', p[1].toString())
     circle.setAttribute('r', "2")
     svg.appendChild(circle)
   })

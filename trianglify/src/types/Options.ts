@@ -1,6 +1,7 @@
 import type {BrewerPalettes} from "./BrewerPalettes";
 import type {Color, InterpolationMode} from "chroma-js";
 import type {Param} from "./Param";
+import type {Point} from "./Point";
 
 export type Options = {
     width: number,
@@ -15,4 +16,5 @@ export type Options = {
     colorFunction: (param: Param) => Color
     fill: boolean,
     strokeWidth: number,
+    points: Point[] | null
 }

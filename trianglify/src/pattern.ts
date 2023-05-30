@@ -4,7 +4,7 @@ const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !==
 const doc: Document | false = isBrowser && document
 
 // utility for building up SVG node trees with the DOM API
-const sDOM = (tagName, attrs = {}, children, existingRoot: Element) => {
+const sDOM = (tagName: string, attrs = {}, children, existingRoot: Element) => {
   if (!doc) {
     throw new Error("Error: Not browser support")
   }
