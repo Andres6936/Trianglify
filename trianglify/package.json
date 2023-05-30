@@ -1,6 +1,6 @@
 {
   "name": "adan-trianglify",
-  "version": "2023.5.30",
+  "version": "2023.5.31",
   "description": "Trianglify is a javascript library for generating colorful triangle meshes that can be used as SVG images and CSS backgrounds.",
   "main": "build/trianglify.js",
   "type": "module",
