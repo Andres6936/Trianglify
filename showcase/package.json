@@ -1,28 +1,37 @@
 {
-  "name": "showcase",
-  "version": "1.0.0",
-  "description": "The demo for Trianglify",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/qrohlf/trianglify.git"
-  },
-  "keywords": [
-    "showcase",
-    "trianglify"
-  ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/qrohlf/trianglify/issues"
-  },
-  "homepage": "https://github.com/qrohlf/trianglify#readme",
-  "dependencies": {
-    "vite": "^4.0.4",
-    "adan-trianglify": "2023.5.31"
-  }
+    "name": "showcase",
+    "private": true,
+    "version": "1.0.0",
+    "description": "The demo for Trianglify",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vite",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Andres6936/Trianglify.git"
+    },
+    "keywords": [
+        "showcase",
+        "trianglify"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Andres6936/Trianglify/issues"
+    },
+    "homepage": "https://github.com/Andres6936/Trianglify#readme",
+    "dependencies": {
+        "adan-trianglify": "2023.5.31",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.37",
+        "@types/react-dom": "^18.0.11",
+        "@vitejs/plugin-react": "^4.0.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.0.4"
+    }
 }
