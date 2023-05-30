@@ -1,4 +1,6 @@
-export default function (ctx) {
+import type {CanvasRenderingContext2D} from "canvas";
+
+export default function getScalingRatio (ctx: CanvasRenderingContext2D): number {
   // adapted from https://gist.github.com/callumlocke/cc258a193839691f60dd
   const backingStoreRatio = (
     ctx.webkitBackingStorePixelRatio ||
@@ -9,6 +11,6 @@ export default function (ctx) {
   )
 
   const devicePixelRatio = (typeof window !== 'undefined' && window.devicePixelRatio) || 1
-  const drawRatio = devicePixelRatio / backingStoreRatio
-  return drawRatio
+  // Return the draw ratio
+  return devicePixelRatio / backingStoreRatio
 }

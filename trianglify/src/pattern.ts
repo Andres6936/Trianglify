@@ -1,15 +1,15 @@
-import { createCanvas } from 'canvas' // this is a simple shim in browsers
+import {Canvas, CanvasRenderingContext2D, createCanvas} from 'canvas' // this is a simple shim in browsers
 import getScalingRatio from './utils/getScalingRatio'
 const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !== 'undefined')
 const doc: Document | false = isBrowser && document
 
 // utility for building up SVG node trees with the DOM API
-const sDOM = (tagName, attrs = {}, children, existingRoot) => {
+const sDOM = (tagName, attrs = {}, children, existingRoot: Element) => {
   if (!doc) {
     throw new Error("Error: Not browser support")
   }
   
-  const elem = existingRoot || doc.createElementNS('http://www.w3.org/2000/svg', tagName)
+  const elem: Element = existingRoot || doc.createElementNS('http://www.w3.org/2000/svg', tagName)
   Object.keys(attrs).forEach(
     k => attrs[k] !== undefined && elem.setAttribute(k, attrs[k])
   )
@@ -91,7 +91,7 @@ export default class Pattern {
     ? (destSVG, svgOpts) => this._toSVG(sDOM, destSVG, svgOpts)
     : (destSVG, svgOpts) => this.toSVGTree(svgOpts)
 
-  toCanvas = (destCanvas, _canvasOpts = {}) => {
+  toCanvas = (destCanvas: Canvas, _canvasOpts = {}): Canvas => {
     const defaultCanvasOptions = {
       scaling: isBrowser ? 'auto' : false,
       applyCssScaling: !!isBrowser
@@ -99,8 +99,8 @@ export default class Pattern {
     const canvasOpts = { ...defaultCanvasOptions, ..._canvasOpts }
     const { points, polys, opts } = this
 
-    const canvas = destCanvas || createCanvas(opts.width, opts.height) // doc.createElement('canvas')
-    const ctx = canvas.getContext('2d')
+    const canvas: Canvas = destCanvas || createCanvas(opts.width, opts.height) // doc.createElement('canvas')
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
 
     if (canvasOpts.scaling) {
       const drawRatio = canvasOpts.scaling === 'auto'
