@@ -1,4 +1,24 @@
+import trianglify from "adan-trianglify";
+import {useEffect, useRef} from "react";
+
 export default function Home() {
+    const canvasRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (canvasRef.current) {
+            const pattern = trianglify({
+                cellSize: 50,
+                width: 400,
+                height: 400
+            });
+
+            // Used for avoid added two children in the node
+            if (!canvasRef.current.hasChildNodes()) {
+                canvasRef.current.append(pattern.toCanvas());
+            }
+        }
+    }, [])
+
     return (
         <div className={"min-h:100vh flex flex:col bg:white"}>
             <div className={"flex flex:row justify-content:space-between px:3em py:1em"}>
@@ -13,10 +33,12 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex flex:row px:10em"}>
-                <h1 className={"font:semibold font-size:3em"}>
-                    Trianglify is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
+            <div className={"flex justify-content:center align-items:center flex:row px:13em gap:1.5em pt:4em"}>
+                <h1 className={"text-align:start font:semibold font-size:2.5em line-height:1.1em"}>
+                    <span className={"font:bold"}>Trianglify</span> is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
                 </h1>
+
+                <div ref={canvasRef}/>
             </div>
 
             <div className={"flex flex:row justify-content:center gap:1em"}>
