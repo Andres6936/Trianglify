@@ -1,17 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import { CSSProvider } from '@master/css.react'
+import {CSSProvider} from '@master/css.react'
+import config from "../master.css.ts";
 import App from './routes/App.tsx'
+import Home from "./routes/Home.tsx";
+import DestSVG from "./routes/DestSVG.tsx";
 import ColorFunction from "./routes/ColorFunction.tsx";
 import CustomPoints from "./routes/CustomPoints.tsx";
-import DestSVG from "./routes/DestSVG.tsx";
 import Transparency from "./routes/Transparency.tsx";
-import config from "../master.css.ts";
 
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Home/>
+    },
+    {
+        path: "/line",
         element: <App/>
     },
     {
