@@ -1,7 +1,7 @@
 import type {Options} from "../types/Options";
 import type {Point} from "../types/Point";
 
-export const debugRender = (opts: Options, points: Point[]) => {
+export const useDebugRender = (opts: Options, points: Point[]) => {
   const doc = window.document
   const svg = window.document.createElementNS('http://www.w3.org/2000/svg', 'svg')
   svg.setAttribute('width', (opts.width + 400).toString())
