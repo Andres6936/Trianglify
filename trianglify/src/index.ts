@@ -10,14 +10,14 @@ import Delaunator from 'delaunator'
 // (chroma bloats bundle by 40k, minified)
 import chroma, {Scale} from 'chroma-js'
 
-import type {BrewerPalettes} from "./types/BrewerPalettes";
-import type {Options} from "./types/Options";
-import type {Point} from "./types/Point";
-import colorbrewer from './color/ColorBrewer'
-import Pattern from './utils/Pattern'
-import mulberry32 from './random/Mulberry32'
-import * as geom from './utils/Geometry'
-import * as colorFunctions from './color/ColorFunctions'
+import type {BrewerPalettes} from "./types/BrewerPalettes.js";
+import type {Options} from "./types/Options.js";
+import type {Point} from "./types/Point.js";
+import colorbrewer from './color/ColorBrewer.js'
+import Pattern from './utils/Pattern.js'
+import mulberry32 from './random/Mulberry32.js'
+import * as geom from './utils/Geometry.js'
+import * as colorFunctions from './color/ColorFunctions.js'
 
 const defaultOptions: Options = {
   width: 600,

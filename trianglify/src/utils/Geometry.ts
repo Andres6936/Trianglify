@@ -1,4 +1,4 @@
-import type {Point} from "../types/Point";
+import type {Point} from "../types/Point.js";
 
 // Given an array of coordinates representing a triangle, find the centroid
 // of the triangle and return it as an {x, y} object
@@ -11,9 +11,9 @@ export const getCentroid = (d: Point[]) => {
   }
 }
 
-export const getTopmostVertexIndex = (vertexIndices, points: Point[]) => (
+export const getTopmostVertexIndex = (vertexIndices: any, points: Point[]) => (
   vertexIndices.reduce(
-    (topmost, i) => (points[i][1] < points[topmost][1] ? i : topmost),
+    (topmost: any, i: any) => (points[i][1] < points[topmost][1] ? i : topmost),
     vertexIndices[0]
   )
 )

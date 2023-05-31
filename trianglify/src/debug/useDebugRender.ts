@@ -1,5 +1,5 @@
-import type {Options} from "../types/Options";
-import type {Point} from "../types/Point";
+import type {Options} from "../types/Options.js";
+import type {Point} from "../types/Point.js";
 
 export const useDebugRender = (opts: Options, points: Point[]) => {
   const doc = window.document

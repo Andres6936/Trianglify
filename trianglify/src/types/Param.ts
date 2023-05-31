@@ -1,6 +1,6 @@
-import type {Options} from "./Options";
+import type {Options} from "./Options.js";
 import type {Scale} from "chroma-js";
-import type {Point} from "./Point";
+import type {Point} from "./Point.js";
 
 export type Param = {
     centroid: {x: number, y: number},

@@ -1,7 +1,7 @@
-import type {BrewerPalettes} from "./BrewerPalettes";
+import type {BrewerPalettes} from "./BrewerPalettes.js";
 import type {Color, InterpolationMode} from "chroma-js";
-import type {Param} from "./Param";
-import type {Point} from "./Point";
+import type {Param} from "./Param.js";
+import type {Point} from "./Point.js";
 
 export type Options = {
     width: number,

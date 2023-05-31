@@ -1,5 +1,5 @@
 import chroma, {Color} from 'chroma-js'
-import type {Param} from "../types/Param";
+import type {Param} from "../types/Param.js";
 
 // Built in color functions provided for your convenience.
 //

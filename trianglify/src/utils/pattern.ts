@@ -1,5 +1,5 @@
 import {Canvas, CanvasRenderingContext2D, createCanvas} from 'canvas' // this is a simple shim in browsers
-import getScalingRatio from './getScalingRatio'
+import getScalingRatio from './getScalingRatio.js'
 
 const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !== 'undefined')
 const doc: Document | false = isBrowser && document
@@ -14,7 +14,7 @@ const sDOM = (tagName: string, attrs: Record<string, string> = {}, children: any
     Object.keys(attrs).forEach(
         k => attrs[k] !== undefined && elem.setAttribute(k, attrs[k])
     )
-    children && children.forEach(c => elem.appendChild(c))
+    children && children.forEach((c: any) => elem.appendChild(c))
     return elem
 }
 
@@ -36,13 +36,17 @@ const sNode = (tagName: string, attrs: Record<string, string> = {}, children: an
 })
 
 export default class Pattern {
-    constructor(points, polys, opts) {
+    private points;
+    private polys;
+    private opts;
+    
+    constructor(points: any, polys: any, opts: any) {
         this.points = points
         this.polys = polys
         this.opts = opts
     }
 
-    _toSVG = (serializer, destSVG, _svgOpts = {}) => {
+    _toSVG = (serializer: any, destSVG: any, _svgOpts = {}) => {
         const s = serializer
         const defaultSVGOptions = {includeNamespace: true, coordinateDecimals: 1}
         const svgOpts = {...defaultSVGOptions, ..._svgOpts}
@@ -52,11 +56,11 @@ export default class Pattern {
         // only round points if the coordinateDecimals option is non-negative
         // set coordinateDecimals to -1 to disable point rounding
         const roundedPoints = (svgOpts.coordinateDecimals < 0) ? points : points.map(
-            p => p.map(x => +x.toFixed(svgOpts.coordinateDecimals))
+            (p: any) => p.map((x: any) => +x.toFixed(svgOpts.coordinateDecimals))
         )
 
-        const paths = polys.map((poly) => {
-            const xys = poly.vertexIndices.map(i => `${roundedPoints[i][0]},${roundedPoints[i][1]}`)
+        const paths = polys.map((poly: any) => {
+            const xys = poly.vertexIndices.map((i: any) => `${roundedPoints[i][0]},${roundedPoints[i][1]}`)
             const d = 'M' + xys.join('L') + 'Z'
             const hasStroke = opts.strokeWidth > 0
             // shape-rendering crispEdges resolves the antialiasing issues, at the
@@ -86,11 +90,11 @@ export default class Pattern {
         return svg
     }
 
-    toSVGTree = (svgOpts) => this._toSVG(sNode, null, svgOpts)
+    toSVGTree = (svgOpts: any) => this._toSVG(sNode, null, svgOpts)
 
     toSVG = isBrowser
-        ? (destSVG, svgOpts) => this._toSVG(sDOM, destSVG, svgOpts)
-        : (destSVG, svgOpts) => this.toSVGTree(svgOpts)
+        ? (destSVG: any, svgOpts: any) => this._toSVG(sDOM, destSVG, svgOpts)
+        : (destSVG: any, svgOpts: any) => this.toSVGTree(svgOpts)
 
     toCanvas = (destCanvas: Canvas | undefined, _canvasOpts: Record<string, string> | undefined = {}): Canvas => {
         const defaultCanvasOptions = {
@@ -110,27 +114,27 @@ export default class Pattern {
 
             if (drawRatio !== 1) {
                 // set the 'real' canvas size to the higher width/height
-                canvas.width = opts.width * drawRatio
-                canvas.height = opts.height * drawRatio
+                canvas.width = opts.width * (drawRatio as number)
+                canvas.height = opts.height * (drawRatio as number)
 
                 if (canvasOpts.applyCssScaling) {
                     // ...then scale it back down with CSS
-                    canvas.style.width = opts.width + 'px'
-                    canvas.style.height = opts.height + 'px'
+                    canvas.width = opts.width
+                    canvas.height = opts.height
                 }
             } else {
                 // this is a normal 1:1 device: don't apply scaling
                 canvas.width = opts.width
                 canvas.height = opts.height
                 if (canvasOpts.applyCssScaling) {
-                    canvas.style.width = ''
-                    canvas.style.height = ''
+                    canvas.width = 0
+                    canvas.height = 0
                 }
             }
-            ctx.scale(drawRatio, drawRatio)
+            ctx.scale((drawRatio as number), (drawRatio as number))
         }
 
-        const drawPoly = (poly, fill, stroke) => {
+        const drawPoly = (poly: any, fill: any, stroke: any) => {
             const vertexIndices = poly.vertexIndices
             ctx.lineJoin = 'round'
             ctx.beginPath()
@@ -152,11 +156,11 @@ export default class Pattern {
         if (opts.fill && opts.strokeWidth < 1) {
             // draw background strokes at edge bounds to solve for white gaps due to
             // canvas antialiasing. See https://stackoverflow.com/q/19319963/381299
-            polys.forEach(poly => drawPoly(poly, null, {color: poly.color, width: 2}))
+            polys.forEach((poly: any) => drawPoly(poly, null, {color: poly.color, width: 2}))
         }
 
         // draw visible fills and strokes
-        polys.forEach(poly => drawPoly(
+        polys.forEach((poly: any) => drawPoly(
             poly,
             opts.fill && {color: poly.color},
             (opts.strokeWidth > 0) && {color: poly.color, width: opts.strokeWidth}
