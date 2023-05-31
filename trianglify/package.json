@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
+    "test": "vitest",
     "build": "tsc --build"
   },
   "dependencies": {
