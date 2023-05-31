@@ -291,4 +291,4 @@ can
 be used to generate circular trianglify patterns.
 
 
-##### Fork project: github.com/qrohlf/trianglify
+###### Fork project: https://github.com/qrohlf/trianglify
