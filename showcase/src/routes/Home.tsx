@@ -13,7 +13,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex flex:row"}>
+            <div className={"flex flex:row px:10em"}>
                 <h1 className={"font:semibold font-size:3em"}>
                     Trianglify is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
                 </h1>
@@ -33,7 +33,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div>
+            <div className={"flex flex:col text-align:start px:10em"}>
                 <h3>About</h3>
 
                 <p>
