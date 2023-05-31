@@ -5,7 +5,7 @@
 // Here, we test the node-specific functionality of Trianglify.
 
 import { describe, expect, test } from 'vitest'
-import trianglify from '../src/trianglify.js'
+import trianglify from '../src/index.ts'
 import { Canvas } from 'canvas'
 
 const Pattern = trianglify.Pattern

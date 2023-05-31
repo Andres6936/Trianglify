@@ -18,7 +18,7 @@
 // NOT the node library
 
 import { describe, expect, test } from 'vitest'
-import trianglify from '../src/trianglify'
+import trianglify from '../src/index.ts'
 
 const Pattern = trianglify.Pattern
 
