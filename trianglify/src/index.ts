@@ -14,7 +14,7 @@ import type {BrewerPalettes} from "./types/BrewerPalettes.js";
 import type {Options} from "./types/Options.js";
 import type {Point} from "./types/Point.js";
 import colorbrewer from './color/ColorBrewer.js'
-import Pattern from './utils/Pattern.js'
+import Pattern from './pattern/Pattern.js'
 import mulberry32 from './random/Mulberry32.js'
 import * as geom from './utils/Geometry.js'
 import * as colorFunctions from './color/ColorFunctions.js'

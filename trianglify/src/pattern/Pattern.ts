@@ -1,6 +1,7 @@
-import {Canvas, CanvasRenderingContext2D, createCanvas} from 'canvas' // this is a simple shim in browsers
-import getScalingRatio from './getScalingRatio.js'
+import {Canvas, CanvasRenderingContext2D, createCanvas} from 'canvas'
+import getScalingRatio from "../utils/getScalingRatio.js";
 
+// this is a simple shim in browsers
 const isBrowser: boolean = (typeof window !== 'undefined' && typeof document !== 'undefined')
 const doc: Document | false = isBrowser && document
 
