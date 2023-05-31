@@ -33,7 +33,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex justify-content:center align-items:center flex:row px:13em gap:1.5em pt:4em"}>
+            <div className={"flex justify-content:center align-items:center flex:row px:13em gap:1.5em pt:4em pb:3em"}>
                 <h1 className={"text-align:start font:semibold font-size:2.5em line-height:1.1em"}>
                     <span className={"font:bold"}>Trianglify</span> is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
                 </h1>
@@ -41,22 +41,25 @@ export default function Home() {
                 <div ref={canvasRef}/>
             </div>
 
-            <div className={"flex flex:row justify-content:center gap:1em"}>
-                <div>
-                    <h2>Try It Out</h2>
+            <div className={"flex flex:row justify-content:center gap:1em px:10em pb:3em"}>
+                <div className={"text-align:start"}>
+                    <h2 className={"font:semibold"}>Try It Out</h2>
+                    <p>You can generate Trianglify patterns without writing a single line of code at Trianglify.io</p>
                 </div>
 
-                <div>
-                    <h2>Getting Started</h2>
+                <div className={"text-align:start"}>
+                    <h2 className={"font:semibold"}>Getting Started</h2>
+                    <p>Developer documentation and a getting started guide is available on GitHub</p>
                 </div>
 
-                <div>
-                    <h2>Examples</h2>
+                <div className={"text-align:start"}>
+                    <h2 className={"font:semibold"}>Examples</h2>
+                    <p>There are a variety of examples you can download and run here</p>
                 </div>
             </div>
 
             <div className={"flex flex:col text-align:start px:10em"}>
-                <h3>About</h3>
+                <h3 className={"font:semibold font-size:1.5em"}>About</h3>
 
                 <p>
                     My name is Quinn Rohlf, and I'm a roaming engineer/designer based in the western United States.
@@ -73,18 +76,18 @@ export default function Home() {
 
                 <p>Trianglify was originally inspired by @jasonlong's GeoPattern library for Ruby.</p>
 
-                <h3>Licensing</h3>
+                <h3 className={"font:semibold font-size:1.5em"}>Licensing</h3>
 
                 <p>The source code of Trianglify is licensed under version 3 of the GNU General Public License (GPLv3).
                     If you are interested in purchasing a commercial license for Trianglify, please email qr@qrohlf.com
                     for details.</p>
 
-                <h3>Contact</h3>
+                <h3 className={"font:semibold font-size:1.5em"}>Contact</h3>
 
                 <p>If you have a feature suggestion or question about Trianglify, please file an issue on GitHub.</p>
             </div>
             
-            <div>
+            <div className={"flex flex:col justify-content:center align-items:center bt:1px|solid|#CCC mt:5em py:1em"}>
                 <p>Copyright © Quinn Rohlf</p>
             </div>
         </div>
