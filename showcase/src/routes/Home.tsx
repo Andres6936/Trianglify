@@ -21,7 +21,7 @@ export default function Home() {
 
     return (
         <div className={"min-h:100vh flex flex:col bg:white"}>
-            <div className={"flex flex:row justify-content:space-between px:3em py:1em"}>
+            <div className={"flex flex:row justify-content:space-between px:1em px:3em@sm py:1em"}>
                 <div className={"flex flex:row gap:1em"}>
                     <p className={"font:semibold font-size:1.1em"}>Github</p>
                     <p className={"font:semibold font-size:1.1em"}>NPM</p>
@@ -33,15 +33,15 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex justify-content:center align-items:center flex:row px:13em gap:1.5em pt:4em pb:3em"}>
-                <h1 className={"text-align:start font:semibold font-size:2.5em line-height:1.1em"}>
+            <div className={"flex justify-content:center align-items:center flex:col flex:row@sm px:2.5em px:13em@sm gap:1.5em pt:1em pt:4em@sm pb:3em"}>
+                <h1 className={"text-align:center text-align:start@sm font:semibold font-size:2.5em line-height:1.1em"}>
                     <span className={"font:bold"}>Trianglify</span> is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
                 </h1>
 
                 <div ref={canvasRef}/>
             </div>
 
-            <div className={"flex flex:row justify-content:center gap:1em px:10em pb:3em"}>
+            <div className={"flex flex:col flex:row@sm justify-content:center gap:1em px:2.5em px:10em@sm pb:3em"}>
                 <div className={"text-align:start"}>
                     <h2 className={"font:semibold"}>Try It Out</h2>
                     <p>You can generate Trianglify patterns without writing a single line of code at Trianglify.io</p>
@@ -58,7 +58,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex flex:col text-align:start px:10em"}>
+            <div className={"flex flex:col text-align:start px:2.5em px:10em@sm"}>
                 <h3 className={"font:semibold font-size:1.5em"}>About</h3>
 
                 <p>
