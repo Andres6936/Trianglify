@@ -33,8 +33,8 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className={"flex justify-content:center align-items:center flex:col flex:row@sm px:2.5em px:13em@sm gap:1.5em pt:1em pt:4em@sm pb:3em"}>
-                <h1 className={"text-align:center text-align:start@sm font:semibold font-size:2.5em line-height:1.1em"}>
+            <div className={"flex justify-content:center align-items:center flex:col flex:row@md px:2.5em px:9em@xs px:13em@sm gap:1.5em pt:1em pt:4em@sm pb:3em"}>
+                <h1 className={"text-align:center text-align:start@md font:semibold font-size:2.5em line-height:1.1em"}>
                     <span className={"font:bold"}>Trianglify</span> is a Javascript library for creating unique, aesthetically pleasing triangle patterns.
                 </h1>
 
